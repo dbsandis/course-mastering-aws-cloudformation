@@ -43,7 +43,8 @@ Resources:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
       ImageId: !FindInMap [RegionArch2AMI, !Ref "AWS::Region", HVM64]
-      InstanceType: t2.micro
+      InstanceType: t2.large # <- Changed from t2.micro
+
 Outputs:
   LCName:
     Description: Launch Configuration Name

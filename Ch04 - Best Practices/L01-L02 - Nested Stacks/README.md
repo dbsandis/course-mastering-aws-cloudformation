@@ -7,15 +7,10 @@
 
 ### Upload Templates
 ```shell
-PROFILE=cloudguru
-REGION=us-east-1
-CourseBucketParam=acg-deploy-bucket
-aws s3 sync \
-  . s3://$CourseBucketParam/coursefiles/nestedstacks \
-  --exclude "*" \
-  --include "*.yaml" \
-  --region $REGION \
-  --profile $PROFILE
+set PROFILE=ansible
+set REGION=us-east-1
+set CourseBucketParam=dbs-deploy-bucket
+aws s3 sync  . s3://$CourseBucketParam/coursefiles/nestedstacks --exclude "*" --include "*.yaml" --region $REGION --profile $PROFILE
 ```
 
 ### Deploy *START* Template

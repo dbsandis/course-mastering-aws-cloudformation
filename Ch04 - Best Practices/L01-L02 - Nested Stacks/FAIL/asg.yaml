@@ -14,3 +14,12 @@ Resources:
       LaunchConfigurationName: !Ref LCNameParam
       MaxSize: "1"
       MinSize: "1"
+
+  # Added this Wait condition to cause FAIL and ROLLBACK
+  WaitCondition:
+    Type: AWS::CloudFormation::WaitCondition
+    DependsOn: ASG
+    CreationPolicy:
+      ResourceSignal:
+        Count: 1
+        Timeout: PT1M
